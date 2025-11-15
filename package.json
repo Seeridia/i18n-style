@@ -1,6 +1,6 @@
 {
     "name": "i18n-style",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "A tiny utility for converting words or sentences into i18n-style abbreviations.",
     "main": "dist/index.js",
     "module": "dist/index.mjs",
@@ -8,8 +8,7 @@
     "exports": {
         ".": {
             "require": "./dist/index.js",
-            "import": "./dist/index.mjs",
-            "types": "./dist/index.d.ts"
+            "import": "./dist/index.mjs"
         }
     },
     "scripts": {
@@ -22,11 +21,8 @@
         "string",
         "utility"
     ],
-    "author": "",
     "license": "MIT",
     "devDependencies": {
-        "install": "^0.13.0",
-        "npm": "^11.6.2",
         "tsup": "^8.0.1",
         "typescript": "^5.9.3",
         "vitest": "^4.0.9"
