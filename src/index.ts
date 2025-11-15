@@ -25,9 +25,38 @@
  * i18n("Hello world!");
  * // "H3o w3d!"
  */
-export default function i18n(input: string): string {
+export interface I18nOptions {
+  /** Minimum length that triggers abbreviation. Defaults to 3. */
+  minWordLength?: number;
+  /** Explicit words or patterns to leave untouched. */
+  skipWords?: Array<string | RegExp>;
+  /** Custom check to decide whether a word should be skipped. */
+  shouldSkip?: (word: string) => boolean;
+}
+
+function shouldSkipWord(word: string, options?: I18nOptions): boolean {
+  if (!options) return false;
+
+  if (options.skipWords) {
+    for (const matcher of options.skipWords) {
+      if (typeof matcher === "string" && matcher === word) return true;
+      if (matcher instanceof RegExp && matcher.test(word)) return true;
+    }
+  }
+
+  if (options.shouldSkip && options.shouldSkip(word)) {
+    return true;
+  }
+
+  return false;
+}
+
+export default function i18n(input: string, options?: I18nOptions): string {
+  const minWordLength = options?.minWordLength ?? 3;
+
   return input.replace(/[A-Za-z]+/g, (word) => {
-    if (word.length <= 2) return word;
+    if (word.length < minWordLength) return word;
+    if (shouldSkipWord(word, options)) return word;
 
     const begin = word[0];
     const end = word[word.length - 1];
