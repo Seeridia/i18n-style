@@ -1,0 +1,39 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+.pnpm-debug.log*
+
+# Output
+dist/
+build/
+
+# TypeScript
+*.tsbuildinfo
+
+# Optional editor files
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# Mac
+.DS_Store
+
+# Logs
+logs/
+*.log
+*.log.*
+npm-debug.log*
+
+# coverage (for vitest)
+coverage/
+
+# Temp
+tmp/
+temp/

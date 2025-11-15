@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+
+    "module": "NodeNext",
+    "target": "ES2017",
+    "moduleResolution": "NodeNext",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+
+    "types": ["vitest/globals"],
+
+    "isolatedModules": true,
+    "lib": ["ESNext"]
+  },
+  "include": ["src", "test"],
+  "exclude": ["node_modules", "dist"]
+}
